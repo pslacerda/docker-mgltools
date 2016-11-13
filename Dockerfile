@@ -29,7 +29,11 @@ USER mgltools
 
 RUN wget -q $MGL_LINK && tar -xf mgltools_x86_64Linux2_$MGL_VERSION.tar.gz && \
 	rm -rf mgltools_x86_64Linux2_$MGL_VERSION.tar.gz && cd mgltools_x86_64Linux2_$MGL_VERSION && \
-	./install.sh -d $PROGRAMS_ROOT/mgltools_x86_64Linux2_$MGL_VERSION
+	./install.sh -d $PROGRAMS_ROOT/mgltools_x86_64Linux2_$MGL_VERSION && \
+	sh -c "echo alias pmv=$PROGRAMS_ROOT/mgltools_x86_64Linux2_1.5.6/bin/pmv" >> $MGL_HOME/.bashrc && \
+	sh -c "alias adt=$PROGRAMS_ROOT/mgltools_x86_64Linux2_1.5.6/bin/adt" >> $MGL_HOME/.bashrc && \
+	sh -c "alias vision=$PROGRAMS_ROOT/mgltools_x86_64Linux2_1.5.6/bin/vision" >> $MGL_HOME/.bashrc && \
+	sh -c "alias pythonsh=$PROGRAMS_ROOT/mgltools_x86_64Linux2_1.5.6/bin/pythonsh" >> $MGL_HOME/.bashrc
 
 VOLUME ["/data/"]
 
