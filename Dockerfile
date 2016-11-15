@@ -25,7 +25,7 @@ RUN groupadd -r $MGL_USER -g $MGL_GID && \
 
 WORKDIR $PROGRAMS_ROOT
 
-USER mgltools
+USER $MGL_USER
 
 RUN wget -q $MGL_LINK && tar -xf mgltools_x86_64Linux2_$MGL_VERSION.tar.gz && \
 	rm -rf mgltools_x86_64Linux2_$MGL_VERSION.tar.gz && cd mgltools_x86_64Linux2_$MGL_VERSION && \
